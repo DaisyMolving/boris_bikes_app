@@ -18,6 +18,14 @@ describe Van do
     expect(van.bike_count).to eq 1
   end
 
+  it 'should only take return bike if fixed' do
+    working_bike, broken_bike = Bike.new, Bike.new
+    broken_bike.break
+    van.load(working_bike)
+    van.load(broken_bike)
+    expect(van.returned_bikes).to eq([working_bike])
+  end
+
   it 'should unload a bike to garage' do
     van.load(bike)
     van.unload(bike)
