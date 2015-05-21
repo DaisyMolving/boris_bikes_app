@@ -13,4 +13,10 @@ describe Van do
     expect(van.bike_count).to eq 1
   end
 
+  it 'should unload a bike to garage' do
+    van.load(bike)
+    van.unload(bike)
+    expect(van.bike_count).to eq 0
+  end
+
 end
