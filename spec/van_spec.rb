@@ -30,4 +30,9 @@ describe Van do
     expect(van.full?).to be true
   end
 
+  it "should not accept a bike if it's full" do
+    fill_van van
+    expect { van.load(bike) }.to raise_error RuntimeError
+  end
+
 end
